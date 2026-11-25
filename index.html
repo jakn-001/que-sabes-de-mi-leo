@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conociendo a Leo · Pesadilla en Elm Street</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Capas atmosféricas: niebla, viñeta y parpadeo de luz -->
+  <div class="fog fog-1"></div>
+  <div class="fog fog-2"></div>
+  <div class="vignette"></div>
+  <div class="flicker"></div>
+
+  <!-- Botón de sonido (activado/desactivado) -->
+  <button id="btn-sonido" class="sound-btn" aria-label="Activar o desactivar sonido">🔇 Sonido: OFF</button>
+
+  <main class="card" id="app">
+
+    <!-- ========== PANTALLA DE BIENVENIDA ========== -->
+    <section id="pantalla-inicio" class="pantalla activa">
+      <div class="street-sign">ELM STREET</div>
+
+      <!-- Guante de cuchillas (SVG) -->
+      <svg class="glove" viewBox="0 0 200 120" aria-hidden="true">
+        <path d="M20 90 Q10 60 40 55 L150 60 Q175 62 172 85 Q168 108 140 108 L50 108 Q25 108 20 90Z" fill="#4a3220" stroke="#1a0d05" stroke-width="3"/>
+        <g fill="#c9ccd1" stroke="#555" stroke-width="1.5">
+          <path d="M150 58 L198 30 L158 68Z"/>
+          <path d="M152 68 L199 50 L160 78Z"/>
+          <path d="M152 78 L198 70 L160 88Z"/>
+          <path d="M150 88 L196 90 L158 98Z"/>
+        </g>
+      </svg>
+
+      <h1 class="titulo">Conociendo a <span>Leo</span></h1>
+      <p class="subtitulo">¿Qué tanto me conoces?</p>
+      <p class="frase">Bienvenido a la encuesta… no te duermas.</p>
+      <button id="btn-comenzar" class="btn btn-principal">ENTRAR A LA PESADILLA</button>
+    </section>
+
+    <!-- ========== PANTALLA DE PREGUNTAS ========== -->
+    <section id="pantalla-preguntas" class="pantalla">
+      <div class="sweater-bar"></div>
+      <div class="progreso-info">
+        <span id="texto-progreso">Pregunta 1 de 6</span>
+        <span id="porcentaje">0%</span>
+      </div>
+      <div class="barra"><div id="barra-relleno" class="barra-relleno"></div></div>
+
+      <div id="contenedor-pregunta" class="pregunta-box">
+        <h2 id="texto-pregunta"></h2>
+        <div id="opciones" class="opciones"></div>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+        <p id="error" class="error" aria-live="assertive"></p>
+      </div>
+
+      <div class="nav">
+        <button id="btn-atras" class="btn btn-sec">← Atrás</button>
+        <button id="btn-siguiente" class="btn btn-principal">Siguiente →</button>
+      </div>
+    </section>
+
+    <!-- ========== PANTALLA FINAL ========== -->
+    <section id="pantalla-final" class="pantalla">
+      <div class="sweater-bar"></div>
+      <h2 class="titulo-final">Fin de la pesadilla</h2>
+      <p id="mensaje-final" class="frase"></p>
+      <div class="resultados">
+        <div class="res res-ok"><strong id="num-correctas">0</strong><span>Correctas</span></div>
+        <div class="res res-mal"><strong id="num-incorrectas">0</strong><span>Incorrectas</span></div>
+      </div>
+      <ul id="detalle" class="detalle"></ul>
+      <button id="btn-reiniciar" class="btn btn-principal">VOLVER A DORMIR</button>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
